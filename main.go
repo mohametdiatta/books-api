@@ -15,7 +15,7 @@ func main() {
 	// midleware ...
 	protected := app.Use(AuthMildleWare(db))
 
-	BookRoutes(app.Group("/books"), db)
+	BookRoutes(protected.Group("/books"), db)
 	app.Listen(":3000")
 
 }
